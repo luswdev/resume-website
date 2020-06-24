@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><!-- your name here --> - 履歷</title>
+    <link rel="icon" type="image/png" href="/data/img/work.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.min.css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.min.css" />
+    <link href="//unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+    <script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- User Sources -->
+    <link rel="stylesheet" type="text/css" href="/asserts/css/outline.css">
+    <link rel="stylesheet" type="text/css" href="/asserts/css/card.css">
+    <link rel="stylesheet" type="text/css" href="/asserts/css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="/asserts/css/timeline.css">
+
+</head>
+<body class="blue-grey-text text-darken-3">
+    <header id="top">
+        <div class="header-inner" id="vue-header">
+            <div class="navbar-fixed">   
+                <nav>
+                    <div class="nav-wrapper">
+                        <a class="brand-logo blue-grey-text text-darken-3" href="#top">
+                            {{name}}
+                        </a>
+                        <a data-target="slide-out" class="sidenav-trigger blue-grey-text text-darken-3">
+                            <i class="material-icons">menu</i>
+                        </a>
+                        <ul class="right hide-on-med-and-down blue-grey-text text-darken-3">
+                            <li v-for="item in menu"><a :href="item.link">{{item.name}}</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <ul id="slide-out" class="sidenav blue-grey-text text-darken-3">
+                <li><a href="#top">{{name}}</a></li>
+                <li v-for="item in menu"><a :href="item.link">{{item.link}}</a></li>
+            </ul>
+        </div>
+    </header>
+	<main>
+		<div class="main-inner" id="vue-body">
+            <div class="resume-item-outter blue-grey lighten-5">
+                <div class="resume-item about-me row container">
+                    <div class="avactor-box col s10 offset-s1 l4 offset-l2 center-align">
+                        <img src="/data/img/me.jpeg" alt="avator" class="circle z-depth-4"  data-aos="zoom-in-right">
+                    </div>
+                    <div class="title-box col s10 offset-s1 l4" data-aos="zoom-in-left">
+                        <h5>{{name}}</h5>
+                        <hr>
+                        <ul>
+                            <li><i class="fas fa-caret-right"></i> {{title}}</li>
+                            <li v-for="item in about.lists"><i class="fas fa-caret-right"></i> {{item}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="intro-box row">
+                    <div class="col s12 m8 offset-m2 l6 offset-l3 center-align" data-aos="zoom-in-up">
+                        <h5>{{about.intro.title}}</h5>
+                        <p>{{about.intro.description}}</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="no-show" id="edu">
+            <div class="resume-item-outter">
+                <div class="item-title col s12 center-align">
+                    <h5>Eduaction</h5>
+                </div>
+                <hr>
+                <div class="resume-item row container"> 
+                    <div class="col s12 l10 offset-l1">
+                        <div class="timeline-section">
+                            <div class="timeline" id="vue-edu">
+                                <div v-for="school in schools" class="container-right">
+                                    <div class="time" data-aos="zoom-in-right">
+                                    <span>{{school.end}}<br>{{school.sub}}</span>
+                                    </div>
+                                    <div class="content" data-aos="zoom-in-left">
+                                        <div class="time-title">
+                                            <h5>{{school.title}}</h5>
+                                        </div>
+                                        <div class="time-card">
+                                            <p v-html="school.description"></p>
+                                        </div>
+                                    </div>
+                                    <div class="time" data-aos="zoom-in-right">
+                                        <span>{{school.start}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="item-hr" id="exp">
+            <div class="resume-item-outter">
+                <div class="item-title col s12 center-align">
+                    <h5>Experience</h5>
+                </div>
+                <hr>
+                <div class="resume-item row container">
+                    <div class="col s12 l10 offset-l1">
+                        <div class="timeline-section">
+                            <div class="timeline" id="vue-exp">
+                                <div v-for="exp in exps" class="container-right"> 
+                                    <div class="time" data-aos="zoom-in-right">
+                                        <span>{{exp.end}}<br>{{exp.sub}}</span>
+                                    </div>
+                                    <div class="content" data-aos="zoom-in-left">
+                                        <div class="time-title">
+                                            <h5>{{exp.title}}</h5>
+                                        </div>
+                                        <div class="time-card">
+                                            <p v-html="exp.description"></p>
+                                        </div>
+                                    </div>
+                                    <div class="time" data-aos="zoom-in-right">
+                                        <span>{{exp.start}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="no-show" id="skill">
+            <div class="resume-item-outter parallax-container">
+                <div class="item-title skills-title col s12 center-align blue-grey darken-4">
+                    <h5 class="white-text">Skills</h5>
+                </div>
+                <div class="parallax">
+                    <img src="/data/img/parallax-skill.jpg" alt="parallax">
+                    <div class="resume-item row container">
+                        <div class="skill-cards white-text" id="vue-skill">
+                            <div v-for="(skill, index) in skills" class="col s12 m6 l4" v-bind:class="offsetClass(index)">
+                                <div class="card-panel" data-aos="zoom-in">
+                                    <i :class="skill.icon"></i>
+                                    <span class="card-title"> {{skill.name}}</span>
+                                    <span class="right">{{skill.level}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="no-show" id="project">
+            <div class="resume-item-outter">
+                <div class="item-title col s12 center-align">
+                    <h5>Projects</h5>
+                </div>            
+                <hr>
+                <div class="resume-item row container">
+                    <div class="projects" id="vue-project">
+                        <div v-for="project in projects" class="col s12 m6 l4">
+                            <div class="card sticky-action blue-grey lighten-5" data-aos="zoom-in">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" :src="'/data/img/' + project.img">
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator">{{project.title}}<i class="material-icons right">more_vert</i></span>
+                                </div>
+                                <div class="card-action">
+                                    <a :href="project.link" target="_blank" class="teal-text">{{project.action}}</a>
+                                </div>
+                                <div class="card-reveal blue-grey lighten-5">
+                                    <span class="card-title">{{project.title}}<i class="material-icons right">close</i></span>
+                                    <p v-html="project.description"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="no-show" id="contact">
+            <div class="resume-item-outter contact-outter grey lighten-3">
+                <div class="item-title col s12 center-align">
+                    <h5>Contact</h5>
+                </div>
+                <hr>
+                <div class="resume-item row container">
+                    <div class="contacts">
+                        <div class="mailbox">
+                            <form class="col s12 m6 l6">
+                                <div class="row">
+                                    <div class="col s6">
+                                        <input id="name" class="validate" type="text" name="name" placeholder="Name" required>
+                                    </div>
+                                    <div class="col s6">
+                                        <input id="mail" class="validate" type="email" name="mail" placeholder="Email" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <input id="subject" class="validate" type="text" name="subject" placeholder="Subject" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <textarea id="message" class="validate"  placeholder="Message" data-length="120" required></textarea>
+                                    </div>
+                                </div>
+                                <button class="btn waves-effect waves-light col s12" type="submit" name="action">
+                                    Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col s12 m5 offset-m1 l5 offset-l1" id="vue-contact">
+                            <ul class="contact-list left-align" data-aos="fade-up">
+                                <li class="contact-name">
+                                    <b>{{name}}</b>
+                                    <br>
+                                    <span>{{title}}</span>
+                                </li>
+                                <li v-for="info in infos">
+                                    <i :class="info.icon"></i> 
+                                    <b> {{info.name}}:</b>
+                                    <br>
+                                    <span>{{info.value}}</span>
+                                </li>
+                            </ul>
+                            <hr>
+                            <div data-aos="fade-up">
+                                <a v-for="link in links" rel="external" :href="link.url" target="_blank">
+                                    <span class="fa-stack fa-3x">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i v-bind:class="link.icon" class="fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </main>
+    <footer class="container grey-text text-darken-1">
+        <div class="footer-inner" id="vue-footer"> 
+            <span>&copy; 2020 <!-- your name here --></span>
+            <span v-for="item in pdf">
+                &nbsp;|&nbsp;<a :href="'/data/pdf' + item.link" target="_blank">{{item.name}}</a>
+            </span>
+        </div>
+    </footer>
+    <script src="/asserts/js/main.js"></script>
+</body>
+</html>

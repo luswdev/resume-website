@@ -1,0 +1,52 @@
+/* scaffold styling */
+html {
+    min-height: 100vh;
+    font-family: 'Open Sans', 'Noto Sans TC', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+header {
+    font-weight: 700;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    padding: 1rem;
+    font-size: 0.8rem;
+}
+
+hr {
+    border: 0;
+    background-color: rgba(0,0,0,.125);
+    height: 1px;
+}
+
+hr.no-show {
+    border: 0;
+    height: 0;
+    margin: 0;
+}
+
+/* navbar styling */
+.navbar-fixed {
+    height: calc(56px + 2rem);
+}
+
+nav {
+    background: #fff;
+    padding: 1rem 2rem;
+    height: auto;
+} 
+
+header ul a {
+    color: #37474f;
+    text-transform: uppercase;
+}

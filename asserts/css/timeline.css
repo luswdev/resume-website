@@ -1,0 +1,129 @@
+.timeline-section {
+    position: relative;
+    margin-top: 2.75rem;
+}
+
+.timeline::after {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 50%;
+    border: 1px solid #eceff1;
+    content: '';
+    width: 0px;
+    background-color: #eceff1;
+    margin-left: -3px;
+    z-index: -1;
+}
+
+.time {
+    position: relative;
+    width: 120px;
+    font-weight: bolder;  
+}
+
+.time span {
+    position: absolute;
+    top:-10px;
+    text-align: right;
+}
+
+.time span:before{
+    position: absolute;  
+    top: 5px; 
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    border: 4px solid #607d8b;
+    background-color: #607d8b;
+    border-radius: 50%;
+    content:'';
+}
+
+.container-right {
+    padding: 1rem;
+}
+
+.container-right .content {
+    padding-left: 15px;
+    left: 50%;
+}
+.container-right .time {
+    left: 50%;
+}
+
+.container-right .time span:before {
+    text-align: container-right;
+    left: 73px;
+}
+
+.container-right .time span {
+    left: -81px;
+}
+
+.time-card {
+    padding: 0 1rem 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.timeline-section .content {
+    position: relative;
+    width: 50%;
+}
+
+.time-title {
+    padding-left: 1rem;
+    margin-top: -1.75rem;
+}
+
+.time-title h5 {
+    font-size:  1.375rem;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 660px) {
+    .timeline::after {
+        left: 60px;
+    }
+
+    .timeline-section .container-right {
+        padding-left: 10px;
+    }
+
+    .timeline-section .container-right .content {
+        width: 70%;
+        left:25%;
+        text-align: left;
+    }
+
+    .timeline-section .container-right .time{
+        left:20px;
+        right: 0;
+        width: 10px;
+        text-align: right;
+        line-height: 15px;
+        font-size: 12px;
+    }
+
+    .timeline-section .container-right .time span {
+        left:-18px;
+    }
+
+    .timeline-section .container-right .time span:before {
+        text-align: right;
+        left: 40px;
+    }
+
+    .timeline-section .container-right .time span:before { 
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background-color: white;
+        border: 4px solid #607d8b;
+        background-color: #607d8b;
+        border-radius: 50%;
+        z-index: 1;
+    }
+}

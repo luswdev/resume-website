@@ -1,0 +1,212 @@
+/* default styling */
+.resume-item {
+    margin: 0 auto;
+    padding: 0;
+    padding-bottom: 2.75rem;
+}
+
+.item-title {
+    padding: 1rem;
+}
+
+.item-title h5 {
+    text-transform: uppercase;
+    color: #37474f;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* 1. about me field */
+.about-me {
+    padding-top: 2.75rem;
+}
+
+.about-me img {
+    width: 80%
+}
+
+.about-me .title-box li {
+    padding: .5rem 0;
+}
+
+.about-me .title-box li i {
+    padding-right: .75rem;
+}
+
+.intro-box {
+    padding: 2.75rem;
+    margin-bottom: 0;
+}
+
+/* 2. skills field */
+.skills-title {
+    padding: 1.25rem;
+}
+
+.parallax:before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(55,71,79 ,0.9);
+    z-index: 1;
+}
+
+.parallax .resume-item {
+    top: 6.75rem;
+    position: relative;
+    z-index: 2;
+}
+
+.skill-cards {
+    padding-top: 3.5rem;
+}
+
+.skill-cards .card-panel {
+    background-color: rgba(255,255,255,.125);
+    box-shadow: none;
+}
+
+.skill-cards i {
+    opacity: 0.8;
+    padding-right: .75rem;
+}
+
+.skill-cards span {
+    font-weight: 600;
+}
+
+/* 3. projects field */
+.projects {
+    padding-top: 3.5rem;
+}
+
+.projects .card .card-title {
+    font-weight: 600;
+}
+
+.projects .card-reveal ul:not(.browser-default) {
+    padding-left: 2rem;
+    list-style-type: disc;
+}
+
+.projects .card-reveal ul:not(.browser-default)>li {
+    list-style-type: disc;
+}
+
+/* 4. contact field */
+.contact-outter hr {
+    border: 0;
+    background-color: rgba(255,255,255,.8);
+    height: 1px;
+}
+
+.contacts {
+    padding-top: 2.75rem;
+}
+
+.contacts a {
+    color: #37474f;
+}
+
+.contacts a:hover {
+    color: #00897b;
+}
+
+.contacts ul.contact-list>li:not(.contact-name) {
+    padding-top: 1.25rem;
+}
+
+.contact-name {
+    padding-bottom: 1.75rem;
+}
+
+.contact-name b{
+    font-size: 2rem;
+}
+
+.contacts hr {
+    border: 0;
+    background-color: rgba(0,0,0,.5);
+    height: 1px;
+    margin-top: 4.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contacts .mailbox form {
+    margin-top: 1.5rem;
+}
+
+.contacts .mailbox input {
+    background: #fff;
+    border: 0;
+    width: calc(100% - 1rem);
+    padding: .75rem 0.5rem;
+    font-size: 1rem;
+    height: unset;
+}
+
+.contacts .mailbox input:hover {
+    background: #E0E0E0;
+    border: 0;
+}
+
+.contacts .mailbox input:focus {
+    background: #E3F2FD;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.contacts .mailbox ::placeholder {
+    color: #757575;
+}
+
+.contacts .mailbox textarea {
+    background: rgb(255, 255, 255);
+    margin: 0px;
+    border: 0;
+    resize: none;
+    height: 10rem;
+    padding: .75rem 0.5rem;
+    border-radius: 0;
+}
+
+.contacts .mailbox textarea:hover {
+    background: #E0E0E0;
+}
+
+.contacts .mailbox textarea:focus {
+    background: #E3F2FD;
+    outline: none;
+}
+
+.contacts .mailbox input.invalid,
+.contacts .mailbox textarea.invalid {
+    background: #ffebee;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.contacts .mailbox input.valid,
+.contacts .mailbox textarea.valid {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.contacts .mailbox button {
+    box-shadow: unset;
+    border-radius: 0;
+}
+
+.failed {
+    background: #ffcdd2;
+    color: #b71c1c;
+}
+
+.successed {
+    background: #c8e6c9;
+    color: #1b5e20;
+}

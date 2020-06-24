@@ -1,0 +1,96 @@
+{
+    "name": "your name",
+    "title": "your title",
+    "header": {
+        "menu": [
+            {
+                "name": "eduaction",
+                "link": "#edu"
+            },
+            {
+                "name": "experience",
+                "link": "#exp"
+            },
+            {
+                "name": "skills",
+                "link": "#skill"
+            },
+            {
+                "name": "projects",
+                "link": "#project"
+            },
+            {
+                "name": "contact",
+                "link": "#contact"
+            },
+            {
+                "name": "中文",
+                "link": "/"
+            }
+        ]
+    },
+    "about": {
+        "lists": [
+            "your quick intro list"
+        ],
+        "intro": {
+            "title": "intro title",
+            "description": "intro details"
+        }
+    },
+    "edu": [
+        {
+            "start": "eduation start time",
+            "end": "eduation end time",
+            "title": "school/department...etc",
+            "sub": "eduation degree",
+            "description": ""
+        }
+    ],
+    "exp": [
+        {
+            "start": "experience start time",
+            "end": "experience end time",
+            "title": "experience location",
+            "sub": "experience position",
+            "description": ""
+        }
+    ],
+    "skill": [
+        {
+            "name": "which skill",
+            "level": "how much you can",
+            "icon": "icon class from fontawesome 5"
+        }
+    ],
+    "project": [
+        {
+            "title": "project title",
+            "action": "link label text",
+            "link": "",
+            "description": "",
+            "img": "preview picture should location at /data/img/, and recorded just file name here"
+        }
+    ],
+    "contact": {
+        "data": [
+            {
+                "icon": "icon class from fontawesome 5",
+                "name": "contact data name",
+                "value": "yap, value"
+            }
+        ],
+        "link": [
+            {
+                "icon": "icon class from fontawesome 5",
+                "url": ""
+            }
+        ]
+    },
+    "pdf": [
+        {
+            "name": "if you have pdf ver, write down link name here. e.g. 'PDF Ver.'",
+            "link": "pdf should location at /data/pdf/, and recorded just file name here"
+        }
+    ]
+}

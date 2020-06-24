@@ -99,13 +99,16 @@ $(document).ready( function() {
                     event.preventDefault(); 
                     event.stopPropagation(); 
 
+                    let success_str = (lang == 'zh-TW') ? '感謝您的回信！' : 'Thanks for your reply!';
+                    let error_str = (lang == 'zh-TW') ? '請正確的填寫表單！' : 'Please filled form corrently!';
+
                     let name = e.target.form[0].value;
                     let mail = e.target.form[1].value;
                     let subj = e.target.form[2].value;
                     let mesg = e.target.form[3].value;
 
                     if (!name || !mail || !subj || !mesg) {
-                        M.toast({html: '請正確的填寫表單！',  classes: 'failed'})
+                        M.toast({html: error_str,  classes: 'failed'});
                     } else {
                         $.ajax({
                             type: "POST",
@@ -113,9 +116,9 @@ $(document).ready( function() {
                             data: { "name": name, "mail": mail, "subj": subj, "mesg": mesg},
                             success: function (res) {
                                 if (res == 'good') {
-                                    M.toast({html: '感謝您的回信！', classes: 'successed'})
+                                    M.toast({html: success_str, classes: 'successed'});
                                 } else {
-                                    M.toast({html: '請正確的填寫表單！', classes: 'failed'})
+                                    M.toast({html: error_str, classes: 'failed'});
                                 }
                             }
                         });
@@ -129,7 +132,7 @@ $(document).ready( function() {
 function getURL() 
 {
     let url = window.location.href;
-    let url_arr = url.split('?')
+    let url_arr = url.split('?');
     let get_dict = {};
 
     url_arr.splice(0, 1);

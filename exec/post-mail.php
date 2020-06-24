@@ -12,7 +12,7 @@ if ($name && $mail && $subj && $mesg) {
     $headers .= 'Reply-To: '. $name . " <" . $mail . '>' . "\r\n";
     $headers .= "Organization: LuSkywalker\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
+    $headers .= "Content-type: text/plain; charset=utf-8\r\n";
     $headers .= "X-Priority: 3\r\n";
     $headers .= "Return-Path: noreply@lusw.dev\r\n";
     $headers .= 'X-Mailer: PHP/' . phpversion();

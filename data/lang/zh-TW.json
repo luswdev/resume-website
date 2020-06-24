@@ -1,6 +1,7 @@
 {
     "name": "你的名字",
     "title": "你的頭銜",
+    "avatar": "把頭像放在 /data/img/ 裡，這裡只要寫檔名就好",
     "header": {
         "menu": [
             {

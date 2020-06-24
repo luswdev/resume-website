@@ -1,6 +1,7 @@
 {
     "name": "your name",
     "title": "your title",
+    "avatar": "avatar should location at /data/img/, and recorded just file name here",
     "header": {
         "menu": [
             {

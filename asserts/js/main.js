@@ -68,6 +68,7 @@ $(document).ready( function() {
             data: {
                 name: json.name,
                 title: json.title,
+                avator: json.avator,
                 about: json.about,
                 schools: json.edu,
                 exps: json.exp,
@@ -92,37 +93,37 @@ $(document).ready( function() {
                     easing: 'ease-in-out-sine',
                     duration: 700
                 });
+
+                /* post mail */
+                $('.send-mail').on('click', function (e) {
+                    event.preventDefault(); 
+                    event.stopPropagation(); 
+
+                    let name = e.target.form[0].value;
+                    let mail = e.target.form[1].value;
+                    let subj = e.target.form[2].value;
+                    let mesg = e.target.form[3].value;
+
+                    if (!name || !mail || !subj || !mesg) {
+                        M.toast({html: '請正確的填寫表單！',  classes: 'failed'})
+                    } else {
+                        $.ajax({
+                            type: "POST",
+                            url: "/exec/post-mail.php",
+                            data: { "name": name, "mail": mail, "subj": subj, "mesg": mesg},
+                            success: function (res) {
+                                if (res == 'good') {
+                                    M.toast({html: '感謝您的回信！', classes: 'successed'})
+                                } else {
+                                    M.toast({html: '請正確的填寫表單！', classes: 'failed'})
+                                }
+                            }
+                        });
+                    }
+                })
             }
         });
     });
-
-    /* post mail */
-    $('.send-mail').on('click', function (e) {
-        event.preventDefault(); 
-        event.stopPropagation(); 
-
-        let name = e.target.form[0].value;
-        let mail = e.target.form[1].value;
-        let subj = e.target.form[2].value;
-        let mesg = e.target.form[3].value;
-
-        if (!name || !mail || !subj || !mesg) {
-            M.toast({html: '請正確的填寫表單！',  classes: 'failed'})
-        } else {
-            $.ajax({
-                type: "POST",
-                url: "/exec/post-mail.php",
-                data: { "name": name, "mail": mail, "subj": subj, "mesg": mesg},
-                success: function (res) {
-                    if (res == 'good') {
-                        M.toast({html: '感謝您的回信！', classes: 'successed'})
-                    } else {
-                        M.toast({html: '請正確的填寫表單！', classes: 'failed'})
-                    }
-                }
-            });
-        }
-    })
 });
 
 function getURL() 

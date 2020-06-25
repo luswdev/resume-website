@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.min.css" />
     <link href="//unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
@@ -27,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/asserts/css/card.css">
     <link rel="stylesheet" type="text/css" href="/asserts/css/mobile.css">
     <link rel="stylesheet" type="text/css" href="/asserts/css/timeline.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
 </head>
 <body class="blue-grey-text text-darken-3">
@@ -211,7 +213,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col s12">
-                                        <textarea id="message" class="validate"  placeholder="Message" data-length="120" required></textarea>
+                                        <textarea id="message" class="validate"  placeholder="Message (Markdown support)" data-length="120" required></textarea>
                                     </div>
                                 </div>
                                 <button class="btn waves-effect waves-light col s12" type="submit" name="action">
@@ -257,6 +259,17 @@
             </span>
         </div>
     </footer>
+    <div class="before-render">    
+        <div class="loading-text">
+            <h3>Loading...</h3>
+        </div>
+        <div class="progress-box container">
+            <div id="myProgress">
+                <div id="myBar"></div>
+            </div>
+        </div>
+        <div id="myNum" class="right-align container">0%</div>
+    </div>
     <script src="/asserts/js/main.js"></script>
 </body>
 </html>

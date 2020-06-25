@@ -4,8 +4,8 @@
 - write down your name for website title and footer at `index.html`
     - title location at `<head><title>HERE</title></head>`
     - footer location at `<footer>HERE</footer>`
-- write down your English name at `/asserts/js/main.js` line 8.
-- set your email at `/exec/post-mail.php` line 8 to receive mail.
+- write down your English name at `/asserts/js/main.js` line 32.
+- set your email at `/exec/post-mail.php` line 11 to receive mail.
 - then upload to apache or nginx
 
 ## DEMO

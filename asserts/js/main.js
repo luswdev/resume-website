@@ -8,20 +8,20 @@ $(document).ready( () => {
     /* get array from url */
     let getURL = () => {
         let url = window.location.href;
-        let url_arr = url.split('?');
-        let get_dict = {};
+        let urlArr = url.split('?');
+        let getDict = {};
 
-        url_arr.splice(0, 1);
-        url_arr.forEach( (element) => {
+        urlArr.splice(0, 1);
+        urlArr.forEach( (element) => {
                 let values = element.split('=');
                 if (values.length > 1) {
-                    get_dict[values[0]] = values[1];
+                    getDict[values[0]] = values[1];
                 }
             }
         );
 
-        get_dict.length = url_arr.length;
-        return get_dict;
+        getDict.length = urlArr.length;
+        return getDict;
     };
 
     /* get i18n language */
@@ -35,21 +35,21 @@ $(document).ready( () => {
         }
     }
 
-    var progress_bar = new Vue({ 
+    var progressBar = new Vue({ 
         el: '#vue-mask',
         data: {
-            bar_width: 0,
-            is_hide: false
+            barWidth: 0,
+            isHide: false
         },
         methods: {
             /* run progress bar */
             move(pers) {
                 pers = pers > 100 ? 100 : pers;
                 let frame = () => {
-                    if (this.width >= pers) {
+                    if (this.barWidth >= pers) {
                         clearInterval(id);
                     } else {
-                        this.width++;
+                        this.barWidth++;
                     }
                 }
                 var id = setInterval(frame, 10);
@@ -76,18 +76,18 @@ $(document).ready( () => {
                     }, speed, method);
                 },
                 /* nav menu animation */
-                nav_link(id) {
+                navLink(id) {
                     if (id[0] != '#') {
                         window.location.href = id;
                         return;
                     }
 
-                    let href_top = $(id).position().top - $('nav').height() - 7.5*2;
+                    let hrefTop = $(id).position().top - $('nav').height() - 7.5*2;
 
-                    this.animationScrollTop(href_top, 300, 'linear'); 
+                    this.animationScrollTop(hrefTop, 300, 'linear'); 
                 },
                 /* sidenav menu animation */
-                sidenav_link(id) {
+                sidenavLink(id) {
                     $('.sidenav').sidenav('close');
 
                     if (id[0] != '#') {
@@ -95,14 +95,14 @@ $(document).ready( () => {
                         return;
                     }
 
-                    let href_top = $(id).position().top - $('nav').height() - 7.5*2;
+                    let hrefTop = $(id).position().top - $('nav').height() - 7.5*2;
 
-                    this.animationScrollTop(href_top, 300, 'linear');
+                    this.animationScrollTop(hrefTop, 300, 'linear');
                 }
             },
             mounted: () => {
                 /* set progress 0% -> 20% */
-                progress_bar.move(20);
+                progressBar.move(20);
             }
         });
 
@@ -113,7 +113,7 @@ $(document).ready( () => {
             },
             mounted: () => {
                 /* set progress 20% -> 40% */
-                progress_bar.move(40);
+                progressBar.move(40);
             }
         });
 
@@ -136,9 +136,9 @@ $(document).ready( () => {
                 offsetClass: (index) => {
                     return !(index % 2) ? 'offset-l2' : '';
                 },
-                post_mail: () => {
-                    let success_str = (lang == 'zh-TW') ? '感謝您的回信！' : 'Thanks for your reply!';
-                    let error_str = (lang == 'zh-TW') ? '請正確的填寫表單！' : 'Please filled form corrently!';
+                postMail: () => {
+                    let successStr = (lang == 'zh-TW') ? '感謝您的回信！' : 'Thanks for your reply!';
+                    let errorStr = (lang == 'zh-TW') ? '請正確的填寫表單！' : 'Please filled form corrently!';
 
                     let name = $('form input')[0].value;
                     let mail = $('form input')[1].value;
@@ -147,7 +147,7 @@ $(document).ready( () => {
 
                     /* check if any field is empty */
                     if (!name || !mail || !subj || !mesg) {
-                        M.toast({html: error_str,  classes: 'failed'});
+                        M.toast({html: errorStr,  classes: 'failed'});
                     } else {
                         $.ajax({
                             type: 'POST',
@@ -155,9 +155,9 @@ $(document).ready( () => {
                             data: { name: name, mail: mail, subj: subj, mesg: mesg},
                             success: (res) => {
                                 if (res == 'good') {
-                                    M.toast({html: success_str, classes: 'successed'});
+                                    M.toast({html: successStr, classes: 'successed'});
                                 } else {
-                                    M.toast({html: error_str, classes: 'failed'});
+                                    M.toast({html: errorStr, classes: 'failed'});
                                 }
                             }
                         });
@@ -178,19 +178,19 @@ $(document).ready( () => {
                 });
 
                 /* set progress 40% -> 100% */
-                progress_bar.move(100);
+                progressBar.move(100);
 
                 /* wait for progress bar growing to 100% */
                 setTimeout( () => {
                     /* close rendering mask */
-                    progress_bar.hide = true;
+                    progressBar.isHide = true;
 
                     /* AOS initial */
                     AOS.init({
                         easing: 'ease-in-out-sine',
                         duration: 700
                     });
-                }, 3000);
+                }, 2500);
             }
         });
     });

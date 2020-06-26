@@ -22,13 +22,13 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
     <script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
     <!-- User Sources -->
     <link rel="stylesheet" type="text/css" href="/asserts/css/outline.css">
     <link rel="stylesheet" type="text/css" href="/asserts/css/card.css">
     <link rel="stylesheet" type="text/css" href="/asserts/css/mobile.css">
     <link rel="stylesheet" type="text/css" href="/asserts/css/timeline.css">
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
 </head>
 <body class="blue-grey-text text-darken-3">
@@ -37,21 +37,21 @@
             <div class="navbar-fixed">   
                 <nav>
                     <div class="nav-wrapper">
-                        <a class="brand-logo blue-grey-text text-darken-3" href="#top">
+                        <a class="brand-logo blue-grey-text text-darken-3 waves-effect" v-bind:click="nav_link('#top')">
                             {{name}}
                         </a>
                         <a data-target="slide-out" class="sidenav-trigger blue-grey-text text-darken-3">
                             <i class="material-icons">menu</i>
                         </a>
                         <ul class="right hide-on-med-and-down blue-grey-text text-darken-3">
-                            <li v-for="item in menu"><a :href="item.link">{{item.name}}</a></li>
+                            <li v-for="item in menu"><a class="waves-effect" v-bind:click="nav_link(item.link)">{{item.name}}</a></li>
                         </ul>
                     </div>
                 </nav>
             </div>
             <ul id="slide-out" class="sidenav blue-grey-text text-darken-3">
-                <li><a href="#top">{{name}}</a></li>
-                <li v-for="item in menu"><a :href="item.link">{{item.link}}</a></li>
+                <li><a v-on:click="sidenav_link('#top')">{{name}}</a></li>
+                <li v-for="item in menu"><a v-bind:click="sidenav_link(item.link)">{{item.link}}</a></li>
             </ul>
         </div>
     </header>
@@ -81,7 +81,7 @@
             <hr class="no-show" id="edu">
             <div class="resume-item-outter">
                 <div class="item-title col s12 center-align">
-                    <h5>Eduaction</h5>
+                    <h5>{{menu[0].name}}</h5>
                 </div>
                 <hr>
                 <div class="resume-item row container"> 
@@ -112,7 +112,7 @@
             <hr class="item-hr" id="exp">
             <div class="resume-item-outter">
                 <div class="item-title col s12 center-align">
-                    <h5>Experience</h5>
+                    <h5>{{menu[1].name}}</h5>
                 </div>
                 <hr>
                 <div class="resume-item row container">
@@ -143,7 +143,7 @@
             <hr class="no-show" id="skill">
             <div class="resume-item-outter parallax-container">
                 <div class="item-title skills-title col s12 center-align blue-grey darken-4">
-                    <h5 class="white-text">Skills</h5>
+                    <h5 class="white-text">{{menu[2].name}}</h5>
                 </div>
                 <div class="parallax">
                     <img src="/data/img/parallax-skill.jpg" alt="parallax">
@@ -163,7 +163,7 @@
             <hr class="no-show" id="project">
             <div class="resume-item-outter">
                 <div class="item-title col s12 center-align">
-                    <h5>Projects</h5>
+                    <h5>{{menu[3].name}}</h5>
                 </div>            
                 <hr>
                 <div class="resume-item row container">
@@ -191,7 +191,7 @@
             <hr class="no-show" id="contact">
             <div class="resume-item-outter contact-outter grey lighten-3">
                 <div class="item-title col s12 center-align">
-                    <h5>Contact</h5>
+                    <h5>{{menu[4].name}}</h5>
                 </div>
                 <hr>
                 <div class="resume-item row container">
@@ -216,7 +216,7 @@
                                         <textarea id="message" class="validate"  placeholder="Message (Markdown support)" data-length="120" required></textarea>
                                     </div>
                                 </div>
-                                <button class="btn waves-effect waves-light col s12" type="submit" name="action">
+                                <button class="btn waves-effect waves-light col s12" type="button" name="action" v-on:click.stop="post_mail">
                                     Submit
                                     <i class="material-icons right">send</i>
                                 </button>
@@ -259,16 +259,16 @@
             </span>
         </div>
     </footer>
-    <div class="before-render">    
+    <div class="before-render" id="vue-mask" v-bind:style="{ display: hide ? 'none' : '' }">    
         <div class="loading-text">
             <h3>Loading...</h3>
         </div>
         <div class="progress-box container">
-            <div id="myProgress">
-                <div id="myBar"></div>
+            <div id="progress-bar">
+                <div id="progress" v-bind:style="{ width: width + '%' }"></div>
             </div>
         </div>
-        <div id="myNum" class="right-align container">0%</div>
+        <div id="progress-num" class="right-align container">{{width}}%</div>
     </div>
     <script src="/asserts/js/main.js"></script>
 </body>

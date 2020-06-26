@@ -24,6 +24,6 @@
 
         echo $res? "good" : print_r(error_get_last());
     } else {
-        echo "請正確填寫表單!";
+        echo "bad";
     }
 ?>

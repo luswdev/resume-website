@@ -222,10 +222,6 @@
 }
 
 /* before render preloader */
-body {
-    overflow: hidden;
-}
-
 .before-render {
     position: fixed;
     top: 0;
@@ -282,18 +278,18 @@ body {
     height: 10px;
 }
 
-#myProgress {
+#progress-bar {
     width: 100%;
     background-color: #acece6;
 }
   
-#myBar {
-    width: 1%;
+#progress {
+    width: 0%;
     height: 30px;
     background-color: #26a69a;
 }
 
-#myNum {
+#progress-num {
     position: relative;
     top: 56%;
 }

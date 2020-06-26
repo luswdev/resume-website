@@ -37,21 +37,21 @@
             <div class="navbar-fixed">   
                 <nav>
                     <div class="nav-wrapper">
-                        <a class="brand-logo blue-grey-text text-darken-3 waves-effect" v-bind:click="nav_link('#top')">
+                        <a class="brand-logo blue-grey-text text-darken-3 waves-effect" v-on:click="nav_link('#top')">
                             {{name}}
                         </a>
                         <a data-target="slide-out" class="sidenav-trigger blue-grey-text text-darken-3">
                             <i class="material-icons">menu</i>
                         </a>
                         <ul class="right hide-on-med-and-down blue-grey-text text-darken-3">
-                            <li v-for="item in menu"><a class="waves-effect" v-bind:click="nav_link(item.link)">{{item.name}}</a></li>
+                            <li v-for="item in menu"><a class="waves-effect" v-on:click="nav_link(item.link)">{{item.name}}</a></li>
                         </ul>
                     </div>
                 </nav>
             </div>
             <ul id="slide-out" class="sidenav blue-grey-text text-darken-3">
                 <li><a v-on:click="sidenav_link('#top')">{{name}}</a></li>
-                <li v-for="item in menu"><a v-bind:click="sidenav_link(item.link)">{{item.link}}</a></li>
+                <li v-for="item in menu"><a v-on:click="sidenav_link(item.link)">{{item.link}}</a></li>
             </ul>
         </div>
     </header>
@@ -259,16 +259,16 @@
             </span>
         </div>
     </footer>
-    <div class="before-render" id="vue-mask" v-bind:style="{ display: hide ? 'none' : '' }">    
+    <div class="before-render" id="vue-mask" v-bind:style="{ display: is_hide ? 'none' : 'block' }">    
         <div class="loading-text">
             <h3>Loading...</h3>
         </div>
         <div class="progress-box container">
             <div id="progress-bar">
-                <div id="progress" v-bind:style="{ width: width + '%' }"></div>
+                <div id="progress" v-bind:style="{ bar_width: bar_width + '%' }"></div>
             </div>
         </div>
-        <div id="progress-num" class="right-align container">{{width}}%</div>
+        <div id="progress-num" class="right-align container">{{bar_width}}%</div>
     </div>
     <script src="/asserts/js/main.js"></script>
 </body>

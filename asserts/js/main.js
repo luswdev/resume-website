@@ -38,8 +38,8 @@ $(document).ready( () => {
     var progress_bar = new Vue({ 
         el: '#vue-mask',
         data: {
-            width: 0,
-            hide: false
+            bar_width: 0,
+            is_hide: false
         },
         methods: {
             /* run progress bar */

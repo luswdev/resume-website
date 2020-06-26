@@ -2,36 +2,36 @@
  * main.js
  */
 
-'use strict';
+'use strict'
 
 $(document).ready( () => {
     /* get array from url */
     let getURL = () => {
-        let url = window.location.href;
-        let urlArr = url.split('?');
-        let getDict = {};
+        let url = window.location.href
+        let urlArr = url.split('?')
+        let getDict = {}
 
-        urlArr.splice(0, 1);
+        urlArr.splice(0, 1)
         urlArr.forEach( (element) => {
-                let values = element.split('=');
+                let values = element.split('=')
                 if (values.length > 1) {
-                    getDict[values[0]] = values[1];
+                    getDict[values[0]] = values[1]
                 }
             }
-        );
+        )
 
-        getDict.length = urlArr.length;
-        return getDict;
-    };
+        getDict.length = urlArr.length
+        return getDict
+    }
 
     /* get i18n language */
-    let lang = 'zh-TW';
-    let gets = getURL();
+    let lang = 'zh-TW'
+    let gets = getURL()
     if (gets.length > 0) {
-        if (gets.lang == 'en') {
-            let eng_name = ''; // write down your Enlish name
-            lang = 'en';
-            document.title = `${eng_name} - Resume`;
+        if (gets.lang === 'en') {
+            let eng_name = '' // write down your English name
+            lang = 'en'
+            document.title = `${eng_name} - Resume`
         }
     }
 
@@ -44,18 +44,18 @@ $(document).ready( () => {
         methods: {
             /* run progress bar */
             move(pers) {
-                pers = pers > 100 ? 100 : pers;
+                pers = pers > 100 ? 100 : pers
                 let frame = () => {
                     if (this.barWidth >= pers) {
-                        clearInterval(id);
+                        clearInterval(id)
                     } else {
-                        this.barWidth++;
+                        this.barWidth++
                     }
                 }
-                var id = setInterval(frame, 10);
+                var id = setInterval(frame, 10)
             }
         }
-    });
+    })
 
     /* get data from json file */
     $.getJSON(`/data/lang/${lang}.json`)
@@ -73,38 +73,38 @@ $(document).ready( () => {
                 animationScrollTop(top, speed, method) {
                     $('body, html').stop(true, true).animate({
                         scrollTop: top
-                    }, speed, method);
+                    }, speed, method)
                 },
                 /* nav menu animation */
                 navLink(id) {
                     if (id[0] != '#') {
-                        window.location.href = id;
-                        return;
+                        window.location.href = id
+                        return
                     }
 
-                    let hrefTop = $(id).position().top - $('nav').height() - 7.5*2;
+                    let hrefTop = $(id).position().top - $('nav').height() - 7.5*2
 
-                    this.animationScrollTop(hrefTop, 300, 'linear'); 
+                    this.animationScrollTop(hrefTop, 300, 'linear')
                 },
                 /* sidenav menu animation */
                 sidenavLink(id) {
-                    $('.sidenav').sidenav('close');
+                    $('.sidenav').sidenav('close')
 
                     if (id[0] != '#') {
-                        window.location.href = id;
-                        return;
+                        window.location.href = id
+                        return
                     }
 
-                    let hrefTop = $(id).position().top - $('nav').height() - 7.5*2;
+                    let hrefTop = $(id).position().top - $('nav').height() - 7.5*2
 
-                    this.animationScrollTop(hrefTop, 300, 'linear');
+                    this.animationScrollTop(hrefTop, 300, 'linear')
                 }
             },
             mounted: () => {
                 /* set progress 0% -> 20% */
-                progressBar.move(20);
+                progressBar.move(20)
             }
-        });
+        })
 
         let footer = new Vue({ /* footer */
             el: '#vue-footer',
@@ -113,9 +113,9 @@ $(document).ready( () => {
             },
             mounted: () => {
                 /* set progress 20% -> 40% */
-                progressBar.move(40);
+                progressBar.move(40)
             }
-        });
+        })
 
         let main = new Vue({ /* main */
             el: '#vue-body',
@@ -134,40 +134,40 @@ $(document).ready( () => {
             },
             methods: {
                 offsetClass: (index) => {
-                    return !(index % 2) ? 'offset-l2' : '';
+                    return !(index % 2) ? 'offset-l2' : ''
                 },
                 postMail: () => {
-                    let successStr = (lang == 'zh-TW') ? '感謝您的回信！' : 'Thanks for your reply!';
-                    let errorStr = (lang == 'zh-TW') ? '請正確的填寫表單！' : 'Please filled form corrently!';
+                    let successStr = (lang === 'zh-TW') ? '感謝您的回信！' : 'Thanks for your reply!'
+                    let errorStr = (lang === 'zh-TW') ? '請正確的填寫表單！' : 'Please filled form corrently!'
 
-                    let name = $('form input')[0].value;
-                    let mail = $('form input')[1].value;
-                    let subj = $('form input')[2].value;
-                    let mesg = this.simplemde.value();
+                    let name = $('form input')[0].value
+                    let mail = $('form input')[1].value
+                    let subj = $('form input')[2].value
+                    let mesg = this.simplemde.value()
 
                     /* check if any field is empty */
                     if (!name || !mail || !subj || !mesg) {
-                        M.toast({html: errorStr,  classes: 'failed'});
+                        M.toast({html: errorStr,  classes: 'failed'})
                     } else {
                         $.ajax({
                             type: 'POST',
                             url: '/exec/post-mail.php',
                             data: { name: name, mail: mail, subj: subj, mesg: mesg},
                             success: (res) => {
-                                if (res == 'good') {
-                                    M.toast({html: successStr, classes: 'successed'});
+                                if (res === 'good') {
+                                    M.toast({html: successStr, classes: 'successed'})
                                 } else {
-                                    M.toast({html: errorStr, classes: 'failed'});
+                                    M.toast({html: errorStr, classes: 'failed'})
                                 }
                             }
-                        });
+                        })
                     }
                 }
             },
             mounted: () => {
                 /* materialize component initial */
-                $('.sidenav').sidenav();
-                $('.parallax').parallax();
+                $('.sidenav').sidenav()
+                $('.parallax').parallax()
 
                 /* initial send mail textarea to markdown editor */
                 this.simplemde = new SimpleMDE({ 
@@ -175,23 +175,23 @@ $(document).ready( () => {
                     status: false,
                     toolbar: false, 
                     toolbarTips: false,
-                });
+                })
 
                 /* set progress 40% -> 100% */
-                progressBar.move(100);
+                progressBar.move(100)
 
                 /* wait for progress bar growing to 100% */
                 setTimeout( () => {
                     /* close rendering mask */
-                    progressBar.isHide = true;
+                    progressBar.isHide = true
 
                     /* AOS initial */
                     AOS.init({
                         easing: 'ease-in-out-sine',
                         duration: 700
-                    });
-                }, 2500);
+                    })
+                }, 2500)
             }
-        });
-    });
-});
+        })
+    })
+})

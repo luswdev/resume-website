@@ -29,7 +29,7 @@ $(document).ready( () => {
     let gets = getURL();
     if (gets.length > 0) {
         if (gets.lang == 'en') {
-            let eng_name = ''; // write down your English name
+            let eng_name = ''; // write down your Enlish name
             lang = 'en';
             document.title = `${eng_name} - Resume`;
         }

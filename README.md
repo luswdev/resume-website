@@ -1,6 +1,6 @@
 # Resume Website Scaffold
 ## How to Use 
-- filled your information at `/lang/zh-TW.json` and `/lang/en.json`
+- filled your information at `/languages/zh-TW.json` and `/languages/en.json`
 - write down your name for website title and footer at `index.html`
     - title location at `<head><title>HERE</title></head>`
     - footer location at `<footer>HERE</footer>`

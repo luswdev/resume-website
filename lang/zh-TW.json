@@ -1,7 +1,7 @@
 {
     "name": "你的名字",
     "title": "你的頭銜",
-    "avatar": "把頭像放在 /data/img/ 裡，這裡只要寫檔名就好",
+    "avatar": "把頭像放在 /images/ 裡，這裡只要寫檔名就好",
     "header": {
         "menu": [
             {
@@ -70,7 +70,7 @@
             "action": "連結文字",
             "link": "",
             "description": "",
-            "img": "把預覽照片放在 /data/img/ 裡，這裡只要寫檔名就好"
+            "img": "把預覽照片放在 /images/ 裡，這裡只要寫檔名就好"
         }
     ],
     "contact": {
@@ -91,7 +91,7 @@
     "pdf": [
         {
             "name": "如果你有 PDF 版的履歷，這裡記錄你想要的連結名字，如：PDF 版履歷",
-            "link": "把 PDF 放在 /data/pdf/ 裡，這裡只要寫檔名就好"
+            "link": "把 PDF 放在 /pdf/ 裡，這裡只要寫檔名就好"
         }
     ]
 }

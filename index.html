@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title><!-- your name here --> - 履歷</title>
-    <link rel="icon" type="image/png" href="/data/img/work.png">
+    <link rel="icon" type="image/png" href="/images/work.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <meta name="theme-color" content="#ffffff">
@@ -25,10 +25,10 @@
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
     <!-- User Sources -->
-    <link rel="stylesheet" type="text/css" href="/asserts/css/outline.css">
-    <link rel="stylesheet" type="text/css" href="/asserts/css/card.css">
-    <link rel="stylesheet" type="text/css" href="/asserts/css/mobile.css">
-    <link rel="stylesheet" type="text/css" href="/asserts/css/timeline.css">
+    <link rel="stylesheet" type="text/css" href="/styles/outline.css">
+    <link rel="stylesheet" type="text/css" href="/styles/card.css">
+    <link rel="stylesheet" type="text/css" href="/styles/mobile.css">
+    <link rel="stylesheet" type="text/css" href="/styles/timeline.css">
 
 </head>
 <body class="blue-grey-text text-darken-3">
@@ -60,7 +60,7 @@
             <div class="resume-item-outter blue-grey lighten-5">
                 <div class="resume-item about-me row container">
                     <div class="avactor-box col s10 offset-s1 l4 offset-l2 center-align">
-                        <img :src="'/data/img/' + avatar" alt="avator" class="circle z-depth-4"  data-aos="zoom-in-right">
+                        <img :src="'/images/' + avatar" alt="avator" class="circle z-depth-4"  data-aos="zoom-in-right">
                     </div>
                     <div class="title-box col s10 offset-s1 l4" data-aos="zoom-in-left">
                         <h5>{{name}}</h5>
@@ -146,7 +146,7 @@
                     <h5 class="white-text">{{menu[2].name}}</h5>
                 </div>
                 <div class="parallax">
-                    <img src="/data/img/parallax-skill.jpg" alt="parallax">
+                    <img src="/images/parallax-skill.jpg" alt="parallax">
                     <div class="resume-item row container">
                         <div class="skill-cards white-text" id="vue-skill">
                             <div v-for="(skill, index) in skills" class="col s12 m6 l4" v-bind:class="offsetClass(index)">
@@ -171,7 +171,7 @@
                         <div v-for="project in projects" class="col s12 m6 l4">
                             <div class="card sticky-action blue-grey lighten-5" data-aos="zoom-in">
                                 <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" :src="'/data/img/' + project.img">
+                                    <img class="activator" :src="'/images/' + project.img">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title activator">{{project.title}}<i class="material-icons right">more_vert</i></span>
@@ -255,7 +255,7 @@
         <div class="footer-inner" id="vue-footer"> 
             <span>&copy; 2020 <!-- your name here --></span>
             <span v-for="item in pdf">
-                &nbsp;|&nbsp;<a :href="'/data/pdf' + item.link" target="_blank">{{item.name}}</a>
+                &nbsp;|&nbsp;<a :href="'/pdf' + item.link" target="_blank">{{item.name}}</a>
             </span>
         </div>
     </footer>
@@ -270,6 +270,6 @@
         </div>
         <div id="progress-num" class="right-align container">{{barWidth}}%</div>
     </div>
-    <script src="/asserts/js/main.js"></script>
+    <script src="/scrpits/main.js"></script>
 </body>
 </html>

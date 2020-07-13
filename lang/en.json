@@ -1,7 +1,7 @@
 {
     "name": "your name",
     "title": "your title",
-    "avatar": "avatar should location at /data/img/, and recorded just file name here",
+    "avatar": "avatar should location at /images/, and recorded just file name here",
     "header": {
         "menu": [
             {
@@ -70,7 +70,7 @@
             "action": "link label text",
             "link": "",
             "description": "",
-            "img": "preview picture should location at /data/img/, and recorded just file name here"
+            "img": "preview picture should location at /images/, and recorded just file name here"
         }
     ],
     "contact": {
@@ -91,7 +91,7 @@
     "pdf": [
         {
             "name": "if you have pdf ver, write down link name here. e.g. 'PDF Ver.'",
-            "link": "pdf should location at /data/pdf/, and recorded just file name here"
+            "link": "pdf should location at /pdf/, and recorded just file name here"
         }
     ]
 }

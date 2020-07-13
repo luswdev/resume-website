@@ -58,7 +58,7 @@ $(document).ready( () => {
     })
 
     /* get data from json file */
-    $.getJSON(`/data/lang/${lang}.json`)
+    $.getJSON(`/lang/${lang}.json`)
     .done( (data) => {
         /* render data from vuejs */
         let header = new Vue({ /* header */
@@ -151,7 +151,7 @@ $(document).ready( () => {
                     } else {
                         $.ajax({
                             type: 'POST',
-                            url: '/exec/post-mail.php',
+                            url: '/api/post-mail.php',
                             data: { name: name, mail: mail, subj: subj, mesg: mesg},
                             success: (res) => {
                                 if (res === 'good') {

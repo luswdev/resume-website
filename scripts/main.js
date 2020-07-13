@@ -58,7 +58,7 @@ $(document).ready( () => {
     })
 
     /* get data from json file */
-    $.getJSON(`/lang/${lang}.json`)
+    $.getJSON(`/languages/${lang}.json`)
     .done( (data) => {
         /* render data from vuejs */
         let header = new Vue({ /* header */
